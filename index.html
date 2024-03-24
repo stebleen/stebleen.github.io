@@ -246,7 +246,7 @@
     <h1 id="系统调用和中断机制"><a href="#系统调用和中断机制" class="headerlink" title="系统调用和中断机制"></a>系统调用和中断机制</h1><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>操作系统作为用户和计算机间的接口，需要<strong>向上提供服务</strong>。给用户使用的是命令接口GUI；给应用程序使用的是程序接口，程序接口由一堆系统调用组成。</p>
 <p>即系统调用是操作系统提供给<strong>应用程序</strong>使用的接口。应用程序可以通过系统调用来请求获得<strong>操作系统内核</strong>的服务。 </p>
 <p>凡是与共享资源有关的操作(如存储分配、I&#x2F;0操作、文件管理等)，都必须通过系统调用的方式向操作系统内核提出服务请求，由操作系统内核代为完成。这样可以保证系统的稳定性和安全性，防止用户进行非法操作。</p>
-<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><p><img src="D:\blog\source_posts\计算机组成原理：系统调用和中断机制\系统调用的过程.png"></p>
+<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><p><img src="%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="系统调用的过程"></p>
 <ol>
 <li><p>想要发生系统调用时，通过<strong>传参</strong>指令向CPU的寄存器中传入参数和系统调用号<strong>（压入堆栈）</strong>，指明系统调用的类型。</p>
 </li>
@@ -279,6 +279,14 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机组成原理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机系统概述</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
         		</li>
@@ -325,7 +333,7 @@
     
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="Usage-of-Hexo"><a href="#Usage-of-Hexo" class="headerlink" title="Usage of Hexo"></a>Usage of Hexo</h1><ul>
+    <h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><ul>
 <li>每次写完一篇文章<ul>
 <li><code>hexo clean</code> 删除 public 文件夹，即删除旧的博客文章</li>
 <li><code>hexo g</code> 生成 public 文件夹，即生成新的博客文章相关 html 文件</li>
@@ -593,6 +601,14 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计算机组成原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计算机系统概述</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">408</a>
