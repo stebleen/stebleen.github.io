@@ -103,11 +103,6 @@
 					
 				
 					
-						<a class="github" href="#" 
-												title="GitHub" target="_blank"><i class="icon-github"></i></a>
-					
-				
-					
 						<a class="gitee" href="#" 
 												title="gitee" target="_blank"><i class="icon-gitee"></i></a>
 					
@@ -164,11 +159,6 @@
 			
 			<nav class="header-nav">
 				<div class="social">
-					
-						
-						<a class="github" target="_blank" 
-							href="#" title="GitHub"><i class="icon-github"></i></a>
-						
 					
 						
 						<a class="github" target="_blank" 
@@ -250,7 +240,27 @@
     <h1 id="系统调用和中断机制"><a href="#系统调用和中断机制" class="headerlink" title="系统调用和中断机制"></a>系统调用和中断机制</h1><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>操作系统作为用户和计算机间的接口，需要<strong>向上提供服务</strong>。给用户使用的是命令接口GUI；给应用程序使用的是程序接口，程序接口由一堆系统调用组成。</p>
 <p>即系统调用是操作系统提供给<strong>应用程序</strong>使用的接口。应用程序可以通过系统调用来请求获得<strong>操作系统内核</strong>的服务。 </p>
 <p>凡是与共享资源有关的操作(如存储分配、I&#x2F;0操作、文件管理等)，都必须通过系统调用的方式向操作系统内核提出服务请求，由操作系统内核代为完成。这样可以保证系统的稳定性和安全性，防止用户进行非法操作。</p>
-<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><p><img src="%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="系统调用的过程"></p>
+<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><img src="03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%9A%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" class title="[系统调用的过程]">
+
+
+
+<img src="03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%9A%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" class title="这是一张图片">
+
+
+
+<img src="https://sm.ms/image/qC3xizZFpTvl6Sd">
+
+
+
+
+<img src="系统调用的过程.jpg">
+
+<img src="blog\source\_posts\计算机组成原理：系统调用和中断机制\系统调用的过程.jpg">
+
+
+
+<p><img src="blog\source_posts\计算机组成原理：系统调用和中断机制\系统调用的过程.jpg"></p>
+<p><img src="03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%9A%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" alt="系统调用的过程"></p>
 <ol>
 <li><p>想要发生系统调用时，通过<strong>传参</strong>指令向CPU的寄存器中传入参数和系统调用号<strong>（压入堆栈）</strong>，指明系统调用的类型。</p>
 </li>
@@ -713,56 +723,6 @@
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
-  
-    <script type="text/javascript" src="/plugins/live2d-widget.js/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  /**
-   * 完整配置请参考：https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
-   */
-  var pluginModelPath = "assets/", // 模型的文件路径，无需更改
-    pluginRootPath = "/live2d_models/"; // 插件的路径，无需更改
-  //特定的模型json文件名称
-  var modelPathJson = {
-    "epsilon2_1": "Epsilon2.1",
-    "gf": "Gantzert_Felixander",
-    "haru/01": "haru01",
-    "haru/02": "haru02",
-    "nietzsche": "nietzche"
-  }
-
-  
-    var modelName = "hibiki";
-  
-
-  var modelJsonPath = "";
-  if (modelPathJson[modelName]) {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
-      ".model.json";
-  } else {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
-  }
-  L2Dwidget.init({
-    model: {
-      jsonPath: modelJsonPath
-    },
-    display: {
-       position: "right", 
-       width: 145, 
-       height: 315, 
-       hOffset: 50, 
-      
-    },
-    mobile: {
-       show: false, 
-       scale: 0.6 
-    },
-    react: {
-       opacity: 0.8 
-    }
-  })
-
-</script>
-
   
   
 </body>
