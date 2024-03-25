@@ -240,20 +240,31 @@
     <h1 id="系统调用和中断机制"><a href="#系统调用和中断机制" class="headerlink" title="系统调用和中断机制"></a>系统调用和中断机制</h1><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>操作系统作为用户和计算机间的接口，需要<strong>向上提供服务</strong>。给用户使用的是命令接口GUI；给应用程序使用的是程序接口，程序接口由一堆系统调用组成。</p>
 <p>即系统调用是操作系统提供给<strong>应用程序</strong>使用的接口。应用程序可以通过系统调用来请求获得<strong>操作系统内核</strong>的服务。 </p>
 <p>凡是与共享资源有关的操作(如存储分配、I&#x2F;0操作、文件管理等)，都必须通过系统调用的方式向操作系统内核提出服务请求，由操作系统内核代为完成。这样可以保证系统的稳定性和安全性，防止用户进行非法操作。</p>
-<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><img src="https://s2.loli.net/2024/03/25/qC3xizZFpTvl6Sd.png" class title="vi-vim-cheat-sheet">
+<h3 id="系统调用的过程-9733-9733-9733"><a href="#系统调用的过程-9733-9733-9733" class="headerlink" title="系统调用的过程 &#9733;&#9733;&#9733;"></a>系统调用的过程 &#9733;&#9733;&#9733;</h3><img src="https://s2.loli.net/2024/03/25/qC3xizZFpTvl6Sd.png" class title="vi-vim-cheat-sheet">
 
+<hr>
+<img src="https://s2.loli.net/2024/03/25/CsS1q2n4rTZ6lO9.png" class title="vi-vim-cheat-sheet">
+
+<hr>
 <ol>
-<li><p>想要发生系统调用时，通过<strong>传参</strong>指令向CPU的寄存器中传入参数和系统调用号<strong>（压入堆栈）</strong>，指明系统调用的类型。</p>
-</li>
-<li><p>系统调用需要触发陷入指令。当所有参数传完之后，<strong>应用程序</strong>会<strong>执行</strong>一条<strong>陷入（访管）指令</strong>。陷入指令的执行会引发<strong>内中断&#x2F;异常（硬件）</strong>，当 CPU 检测到由 trap 指令引起的内中断信号后，<strong>由用户态进入内核态</strong>，由硬件和操作系统内核程序保护被中断进程的现场（断点），将程序计数器（PC）、程序状态字（PSW）及通用寄存器等压入堆栈。</p>
-</li>
-<li><p>分析系统调用的类型，通过系统调用号在系统调用入口表中找到<strong>系统调用处理子程序的入口地址</strong>，并执行。</p>
-</li>
-<li><p>执行完所有的系统调用的处理程序后，转为用户态，<strong>CPU 继续执行应用程序</strong>。</p>
-</li>
+<li>想要发生系统调用时，通过<strong>传参</strong>指令向CPU的寄存器中传入参数和系统调用号<strong>（压入堆栈）</strong>，指明系统调用的类型。</li>
+<li>系统调用需要触发<strong>陷入指令</strong>。当所有参数传完之后，<strong>应用程序会执行一条陷入&#x2F;访管指令</strong>。陷入指令的执行会引发<strong>内中断&#x2F;异常（硬件）</strong>。</li>
+<li>当 CPU 检测到由 trap 指令引起的内中断信号后，<strong>由用户态进入内核态</strong>，由硬件和操作系统内核程序保护被中断进程的现场（断点），将程序计数器（PC）、程序状态字（PSW）及通用寄存器等压入堆栈。之后，<strong>硬件</strong>根据中断信号在<strong>中断向量表</strong>中查找对应的中断向量，中断向量指明<strong>中断服务程序入口地址</strong>。</li>
+<li>执行中断服务程序（属于操作系统内核），将CPU控制权转交给<strong>系统调用总入口程序</strong>。</li>
+<li>对于系统调用总入口程序，也要先保存现场（中断屏蔽字、各通用寄存器的值），将参数保存在内核的堆栈中。然后通过系统调用号在系统调用入口表中找到<strong>系统调用处理子程序的入口地址</strong>，<strong>执行系统调用处理子程序</strong>。</li>
+<li>执行完所有的系统调用的处理程序后，转为用户态，恢复现场，<strong>CPU 继续执行应用程序</strong>。</li>
 </ol>
 <ul>
-<li>需要注意的是：<ul>
+<li><p>关于中断向量表</p>
+<ul>
+<li>由操作系统初始化</li>
+<li>用于存放中断处理程序的入口地址</li>
+<li>CPU 通过查询得到中断类型号，据此计算得到对应中断服务程序的入口地址在中断向量表的位置</li>
+<li>采用数组作为中断向量表的存储结构</li>
+</ul>
+</li>
+<li><p>需要注意的是：</p>
+<ul>
 <li>系统调用的调用可能发生在用户态，但执行一定是在核心态。</li>
 <li>陷入指令是在用户态执行的。</li>
 </ul>
@@ -284,6 +295,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">系统调用的过程</a>
         		</li>
       		
 		</ul>
@@ -548,6 +563,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">408</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">系统调用的过程</a>
               </li>
             
             <div class="clearfix"></div>
