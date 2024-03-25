@@ -244,103 +244,10 @@
 <ul>
 <li>校验码一共有 $2^k$ 种取值方式。其中需要一种取值方式表示数据正确，剩下 $2^k-1$ 种取值方式表示有一位数据出错。因为编码后的二进制串有 $n+k$ 位，故应满足上式。</li>
 </ul>
-<h2 id="确定检验位的分布"><a href="#确定检验位的分布" class="headerlink" title="确定检验位的分布"></a>确定检验位的分布</h2><p>检验位 $P_i$ 在海明位号为 $2^(i-1)$ 的位置上，其余各位为信息位 $D$。</p>
-<ul>
-<li><p>海明码各位分布如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center">$H_7$</th>
-<th align="center">$H_6$</th>
-<th align="center">$H_5$</th>
-<th align="center">$H_4$</th>
-<th align="center">$H_3$</th>
-<th align="center">$H_2$</th>
-<th align="center">$H_1$</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">$D_4$</td>
-<td align="center">$D_3$</td>
-<td align="center">$D_2$</td>
-<td align="center">$P_3$</td>
-<td align="center">$D_1$</td>
-<td align="center">$P_2$</td>
-<td align="center">$P_1$</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="计算检验位"><a href="#计算检验位" class="headerlink" title="计算检验位"></a>计算检验位</h2><h3 id="检验关系"><a href="#检验关系" class="headerlink" title="检验关系"></a>检验关系</h3><ul>
-<li><p>方法一</p>
-<p>  如对于 $H_7$ ，7对应的二进制是 111，即 $7&#x3D;2^0+2^1+2^2&#x3D;1+2+4$ ，因此 $H_7$ 由 $H_1$、$H_2$、$H_4$ 来检验。</p>
-</li>
-<li><p>方法二</p>
-<table>
-<thead>
-<tr>
-<th align="center">$H_4$</th>
-<th align="center">$H_2$</th>
-<th align="center">$H_1$</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">100</td>
-<td align="center">010</td>
-<td align="center">001</td>
-</tr>
-<tr>
-<td align="center">1**</td>
-<td align="center">*1*</td>
-<td align="center">**1</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">$H_1$</th>
-<th align="center">**1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">$H_3$</td>
-<td align="center">011</td>
-</tr>
-<tr>
-<td align="center">$H_5$</td>
-<td align="center">101</td>
-</tr>
-<tr>
-<td align="center">$H_7$</td>
-<td align="center">111</td>
-</tr>
-</tbody></table>
-<p>  因此，$H_1$ 负责 $H_3$、$H_5$、$H_7$ 位的检验。</p>
-</li>
-</ul>
-<h3 id="检验位取值"><a href="#检验位取值" class="headerlink" title="检验位取值"></a>检验位取值</h3><ul>
-<li>由上述可知：<ul>
-<li>$H_1$ 负责 1、3、5、7 位数的校验</li>
-<li>$H_2$ 负责 2、3、6、7 位数的校验</li>
-<li>$H_4$ 负责 4、5、6、7 位数的校验</li>
-</ul>
-</li>
-<li>因此有：<ul>
-<li>$P_1&#x3D;H_1&#x3D;H_3 \oplus H_5 \oplus H_7&#x3D;D_1 \oplus D_2 \oplus D4$</li>
-<li>$P_2&#x3D;H_2&#x3D;H_3 \oplus H_6 \oplus H_7&#x3D;D_1 \oplus D_3 \oplus D4$</li>
-<li>$P_3&#x3D;H_4&#x3D;H_5 \oplus H_6 \oplus H_7&#x3D;D_2 \oplus D_3 \oplus D4$</li>
-<li>$\oplus$ 表示求异或</li>
-</ul>
-</li>
-</ul>
-<h2 id="检验原理"><a href="#检验原理" class="headerlink" title="检验原理"></a>检验原理</h2><p>每个检验组分别利用检验位和参与形成该检验位的信息位进行奇偶检验检查，构成 $k$ 个检验方程：</p>
-<ul>
-<li>$S_1&#x3D;P_1 \oplus D_1 \oplus D_2 \oplus D4$</li>
-<li>$S_2&#x3D;P_2 \oplus D_1 \oplus D_3 \oplus D4$</li>
-<li>$S_3&#x3D;P_3 \oplus D_2 \oplus D_3 \oplus D4$</li>
-</ul>
-<p>若  $S_1S_2S_3$ 的值为“000”，则说明无错；否则说明出错，且这个数就是错误位的位号，如 $S_1S_2S_3&#x3D;001$，说明第1位出错，即 $H_1$ 出错，直接将该位取反就达到了纠错的目的。</p>
-
+<p><em></em></p>
+    
+    <a class="article-more-a" href="/2024/03/25/HammingCode/#more">more >></a>
+    
     
 
     
@@ -436,44 +343,10 @@
     <h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>操作系统作为用户和计算机间的接口，需要<strong>向上提供服务</strong>。给用户使用的是命令接口GUI；给应用程序使用的是程序接口，程序接口由一堆系统调用组成。</p>
 <p>即系统调用是操作系统提供给<strong>应用程序</strong>使用的接口。应用程序可以通过系统调用来请求获得<strong>操作系统内核</strong>的服务。 </p>
 <p>凡是与共享资源有关的操作(如存储分配、I&#x2F;0操作、文件管理等)，都必须通过系统调用的方式向操作系统内核提出服务请求，由操作系统内核代为完成。这样可以保证系统的稳定性和安全性，防止用户进行非法操作。</p>
-<h3 id="系统调用的过程-9733-9733-9733"><a href="#系统调用的过程-9733-9733-9733" class="headerlink" title="系统调用的过程 &#9733;&#9733;&#9733;"></a>系统调用的过程 &#9733;&#9733;&#9733;</h3><img src="https://s2.loli.net/2024/03/25/qC3xizZFpTvl6Sd.png" class title="系统调用过程">
-
-<hr>
-<img src="https://s2.loli.net/2024/03/25/CsS1q2n4rTZ6lO9.png" class title="系统调用过程">
-
-<hr>
-<img src="https://s2.loli.net/2024/03/25/riIhGHtv25419so.png" class title="Linux下系统调用">
-
-<hr>
-<ol>
-<li>想要发生系统调用时，通过<strong>传参</strong>指令向CPU的寄存器中传入参数和系统调用号<strong>（压入堆栈）</strong>，指明系统调用的类型。</li>
-<li>系统调用需要触发<strong>陷入指令</strong>。当所有参数传完之后，<strong>应用程序会执行一条陷入&#x2F;访管指令</strong>。陷入指令的执行会引发<strong>内中断&#x2F;异常（硬件）</strong>。</li>
-<li>当 CPU 检测到由 trap 指令引起的内中断信号后，<strong>由用户态进入内核态</strong>，由硬件和操作系统内核程序保护被中断进程的现场（断点），将程序计数器（PC）、程序状态字（PSW）及通用寄存器等压入堆栈。之后，<strong>硬件</strong>根据中断信号在<strong>中断向量表</strong>中查找对应的中断向量，中断向量指明<strong>中断服务程序入口地址</strong>。</li>
-<li>执行中断服务程序（属于操作系统内核），将CPU控制权转交给<strong>系统调用总入口程序</strong>。</li>
-<li>对于系统调用总入口程序，也要先保存现场（中断屏蔽字、各通用寄存器的值），将参数保存在内核的堆栈中。然后通过系统调用号在系统调用入口表中找到<strong>系统调用处理子程序的入口地址</strong>，<strong>执行系统调用处理子程序</strong>。</li>
-<li>执行完所有的系统调用的处理程序后，转为用户态，恢复现场，<strong>CPU 继续执行应用程序</strong>。</li>
-</ol>
-<ul>
-<li>关于中断向量表<ul>
-<li>由操作系统初始化</li>
-<li>用于存放中断处理程序的入口地址</li>
-<li>CPU 通过查询得到中断类型号，据此计算得到对应中断服务程序的入口地址在中断向量表的位置</li>
-<li>采用数组作为中断向量表的存储结构</li>
-</ul>
-</li>
-<li>需要注意的是：<ul>
-<li>系统调用的调用可能发生在用户态，但执行一定是在核心态。</li>
-<li>陷入指令是在用户态执行的。</li>
-</ul>
-</li>
-</ul>
-<h2 id="中断机制"><a href="#中断机制" class="headerlink" title="中断机制"></a>中断机制</h2><ul>
-<li><strong>引入中断技术的初衷是提高多道程序运行时的CPU利用率</strong>（多道程序设计技术是在计算机内存中同时存放几道相互独立的程序，使它们在管理程序控制下，相互穿插运行）。</li>
-<li>中断机制是一种<strong>硬件机制</strong>。</li>
-<li>除了非法使用特权指令外，还有很多也会触发“中断”。共性在于，<strong>但凡需要操作系统介入的地方</strong>，都会触发中断信号。</li>
-<li><strong>中断机制中，只有一小部分功能属于内核，它们负责保护和恢复中断现场的信息，转移控制权到相关的处理程序。这样可以减少中断的处理时间，提高系统的并行处理能力。</strong></li>
-</ul>
-
+<p><em></em></p>
+    
+    <a class="article-more-a" href="/2024/03/24/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/#more">more >></a>
+    
     
 
     
