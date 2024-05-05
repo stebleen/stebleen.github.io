@@ -220,6 +220,151 @@
             
 
   
+    <article id="post-SDN补充内容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/05/05/SDN%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9/" target="_blank">SDN补充内容</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/05/05/SDN%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9/" class="archive-article-date">
+        <time datetime="2024-05-05T10:39:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h1><img src="https://s2.loli.net/2024/05/05/8bNZqrMyaGUP3xL.png" class title="SDN体系结构及其四个关键特征">
+
+<h2 id="SDN的广义转发"><a href="#SDN的广义转发" class="headerlink" title="SDN的广义转发"></a>SDN的广义转发</h2><ul>
+<li><p>传统意义上数据层面的任务是：<strong>根据转发表转发分组</strong></p>
+<ul>
+<li>转发分组分为以下两个步骤：<ul>
+<li>进行”<strong>匹配</strong>“：查找转发表中的<strong>网络前缀</strong>，进行最长前缀匹配</li>
+<li>执行”<strong>动作</strong>“：把分组从匹配结果指明的接口转发出去</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SDN的<strong>广义转发</strong>分为以下两个步骤：</p>
+<ul>
+<li>进行”<strong>匹配</strong>“：能够对网络体系结构中<strong>各层（数据链路、网络、运输层）首部中的字段</strong>进行匹配</li>
+<li>执行”<strong>动作</strong>“：不仅<strong>转发分组</strong>，还可以<strong>负载均衡</strong>（传统转发方法不能实现）、<strong>重写IP首部</strong>（类似NAT路由器中的地址转换），人为地<strong>阻挡或丢弃一些分组</strong>（类似防火墙）</li>
+</ul>
+</li>
+<li><p>由于完成”匹配+动作“的设备并不局限在网络层工作，因此不再称为”路由器“，而称为”<strong>（OpenFlow）交换机</strong>“。</p>
+</li>
+<li><p>在SDN中取代传统路由器中转发表的是”<strong>流表</strong>“。</p>
+<ul>
+<li><p>一个流就是穿过网络的一种分组序列，在此序列中的每个分组都<strong>共享分组首部某些字段的值</strong>。例如，某个六可以是具有相同源IP地址和目的IP地址的一连串分组。</p>
+</li>
+<li><p>OpenFlow交换机重点流表是由<strong>SDN远程控制器</strong>来管理的。SDN原串控制器通过一个安全信道，使用OpenFlow协议管理OpenFlow交换机中的流表。</p>
+</li>
+<li><p>每个OpenFlow交换机必须有一个或多个流表。每个流表可以包含多个流表项。每个流表项包含三个字段：首部字段值（匹配字段）、计数器字段、动作字段。</p>
+<table>
+<thead>
+<tr>
+<th>流表</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首部字段值</td>
+<td>计数器</td>
+<td>动作</td>
+</tr>
+<tr>
+<td>……</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>首部字段值</td>
+<td>计数器</td>
+<td>动作</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="SDN控制器"><a href="#SDN控制器" class="headerlink" title="SDN控制器"></a>SDN控制器</h2><img src="https://s2.loli.net/2024/05/05/eMmJ3HhbtKjTUSV.png" class title="SDN控制器">
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/05/05/SDN%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-通信子网和资源子网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1322,19 +1467,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开机过程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计算机组成原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计算机系统概述</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统调用的过程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1350,15 +1491,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">网络的划分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计算机系统概述</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">系统调用的过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
             
             <div class="clearfix"></div>
