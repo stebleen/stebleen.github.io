@@ -220,6 +220,121 @@
             
 
   
+    <article id="post-如何理解广播地址只能作为目的地址，不能作为源地址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/05/12/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80%E5%8F%AA%E8%83%BD%E4%BD%9C%E4%B8%BA%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%BA%90%E5%9C%B0%E5%9D%80/" target="_blank">如何理解广播地址只能作为目的地址，不能作为源地址</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/05/12/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80%E5%8F%AA%E8%83%BD%E4%BD%9C%E4%B8%BA%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%BA%90%E5%9C%B0%E5%9D%80/" class="archive-article-date">
+        <time datetime="2024-05-12T10:49:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>复习的时候才知道：</p>
+<ol>
+<li>广播地址只能作为源地址，不能作为目的地址；</li>
+<li>主机号全为0的（网络）地址可以作为源地址不能作为目的地址。</li>
+</ol>
+</blockquote>
+<p>首先要理解源地址和目的地址：</p>
+<ul>
+<li><p>源IP地址：发送请求的IP地址 。</p>
+</li>
+<li><p>目的IP地址：被请求的主机IP地址。</p>
+</li>
+</ul>
+<h2 id="广播地址只能作为源地址，不能作为目的地址"><a href="#广播地址只能作为源地址，不能作为目的地址" class="headerlink" title="广播地址只能作为源地址，不能作为目的地址"></a>广播地址只能作为源地址，不能作为目的地址</h2><ul>
+<li>广播地址代表了网络全部的主机，向广播地址发送数据时，所有同一网段的主机都会收到该数据，即广播地址可以作为目的地址。</li>
+<li>广播地址之所以不可以作为源地址，是因为广播地址代表了该网络的全部主机，如果广播地址作为源地址（发送请求的IP地址），那么到底是哪台主机的请求呢？ 这是不明确的，所以不能作为源地址。</li>
+</ul>
+<h2 id="主机号全为0的地址可以作为源地址不能作为目的地址"><a href="#主机号全为0的地址可以作为源地址不能作为目的地址" class="headerlink" title="主机号全为0的地址可以作为源地址不能作为目的地址"></a>主机号全为0的地址可以作为源地址不能作为目的地址</h2><ul>
+<li>将网络地址用作源地址：通常情况下，源地址代表特定的设备。然而，在某些特殊情况下，源地址可能被设置为网络地址。例如，当一个设备没有预先配置IP地址，并试图通过DHCP或BOOTP协议从网络服务提供商获取一个IP地址时，这个设备就可能将源地址设为其所在网络的网络地址。</li>
+<li>将网络地址用作目的地址：网络地址表示特定的网络，而不是单个设备。如果将网络地址作为目的地址，那么数据包的目标是整个网络，而不是网络内的一个具体设备，这就无法满足TCP&#x2F;IP通信的基本原则，即端到端的通信。因此，网络地址不能被用作目的地址。</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IPv4</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/05/12/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80%E5%8F%AA%E8%83%BD%E4%BD%9C%E4%B8%BA%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%BA%90%E5%9C%B0%E5%9D%80/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SDN补充内容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1218,93 +1333,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2024/03/24/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2024/03/24/hello-world/" class="archive-article-date">
-        <time datetime="2024-03-24T08:08:19.202Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2024/03/24/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1471,11 +1503,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计算机组成原理</a>
+                <a href="javascript:void(0)" class="js-tag color5">IPv4</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开机过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计算机组成原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1499,11 +1535,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color1">网络的划分</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">网络的划分</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
             
             <div class="clearfix"></div>
