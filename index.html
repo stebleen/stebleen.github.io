@@ -220,6 +220,114 @@
             
 
   
+    <article id="post-IPv4数据报首部检验和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/05/17/IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E9%A6%96%E9%83%A8%E6%A3%80%E9%AA%8C%E5%92%8C/" target="_blank">IPv4数据报首部检验和</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/05/17/IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E9%A6%96%E9%83%A8%E6%A3%80%E9%AA%8C%E5%92%8C/" class="archive-article-date">
+        <time datetime="2024-05-17T15:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>首部检验和的计算方法</li>
+</ul>
+<img src="https://s2.loli.net/2024/05/17/NkhPZT5IsQj42VC.png" class title="首部检验和的计算方法">
+
+<ul>
+<li>反码求和运算</li>
+</ul>
+<img src="https://s2.loli.net/2024/05/17/VPmstWYk9vh2Gnx.png" class title="首部检验和的计算方法">
+
+<ul>
+<li><p>首部检验和</p>
+<ul>
+<li>长度为16个比特，用于检测 <code>IPv4</code> 数据包在传输过程中其首部是否出现了差错。</li>
+<li><code>IPv4</code> 数据报每经过一个路由器，其首部中的某些字段的值（如 <code>TTL</code>、标志、片偏移等）都可能发生变化，因此路由器都要重新计算一下首部检验和。</li>
+</ul>
+<p>由于网际层并不向其高层提供可靠传输的服务，并且计算首部检验和是一项耗时的操作。因此，在 <code>IPV6</code> 中，路由器不再计算首部检验和，从而更快转发 <code>IP</code> 数据报。</p>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/05/17/IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E9%A6%96%E9%83%A8%E6%A3%80%E9%AA%8C%E5%92%8C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据包传送过程中IPv4地址与MAC地址的变化情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1242,109 +1350,6 @@
 
 
   
-    <article id="post-HammingCode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2024/03/25/HammingCode/" target="_blank">HammingCode</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2024/03/25/HammingCode/" class="archive-article-date">
-        <time datetime="2024-03-25T14:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>Hamming Code：一种纠错编码</p>
-</blockquote>
-<h2 id="确定-Hamming-Code-位数"><a href="#确定-Hamming-Code-位数" class="headerlink" title="确定 Hamming Code 位数"></a>确定 Hamming Code 位数</h2><p>有效信息位数（$n$）,检验位位数（$k$），$n$ 和 $k$ 应当满足：<br>$$<br>( n + k \leq 2^k - 1 )<br>$$</p>
-<ul>
-<li>校验码一共有 $2^k$ 种取值方式。其中需要一种取值方式表示数据正确，剩下 $2^k-1$ 种取值方式表示有一位数据出错。因为编码后的二进制串有 $n+k$ 位，故应满足上式。</li>
-</ul>
-<p><em></em></p>
-    
-    <a class="article-more-a" href="/2024/03/25/HammingCode/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Hamming Code</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">408</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2024/03/25/HammingCode/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1527,18 +1532,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计算机系统概述</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统调用的过程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -1548,6 +1541,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计算机系统概述</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">系统调用的过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
